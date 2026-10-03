@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEXORA AI | Websites, AI and Automation</title>
+<meta name="description" content="NEXORA AI builds modern websites, AI-powered solutions and business automation experiences for growing businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070914;--bg2:#0c1020;--ink:#eef1ff;--mute:#9aa3c7;--line:rgba(160,175,255,.14);--glass:rgba(22,27,52,.55);--ice:#7de3ff;--vio:#8b7bff;--ember:#ff9466;--r:20px;--fd:'Syne','Segoe UI',system-ui,sans-serif;--fb:'Manrope','Segoe UI',system-ui,sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--fb);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ice);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--fd);line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);max-width:18ch}
+p{color:var(--mute);max-width:62ch}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:clamp(72px,10vw,130px) 0;position:relative}
+.sub{margin-top:18px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+/* nav */
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 10px 22px;border-radius:999px}
+.logo{font:800 1.25rem var(--fd);letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.logo i{width:20px;height:20px;border-radius:6px;background:conic-gradient(from 200deg,var(--ice),var(--vio),var(--ember),var(--ice));transform:rotate(45deg);box-shadow:0 0 18px rgba(125,227,255,.5)}
+.links{display:flex;gap:26px;font-size:.92rem;color:var(--mute)}
+.links a{position:relative;padding:4px 0;transition:color .25s}
+.links a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:100%;background:var(--ice);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.links a:hover{color:var(--ink)}.links a:hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid var(--line);cursor:pointer;font-family:var(--fb);color:var(--ink);background:transparent;transition:transform .25s,box-shadow .3s,background .3s}
+.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.btn.pri{background:linear-gradient(120deg,var(--ice),var(--vio));color:#060818;border:0;box-shadow:0 8px 30px rgba(125,227,255,.22)}
+.btn.pri:hover{box-shadow:0 10px 44px rgba(139,123,255,.55);background:linear-gradient(120deg,var(--ice),var(--vio))}
+.btn.sm{padding:10px 20px}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:50%;font-size:1.1rem;cursor:pointer}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:130px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+h1{font-size:clamp(2.7rem,6.6vw,5.4rem);font-weight:800}
+h1 span{display:block}
+h1 span:nth-child(2){background:linear-gradient(90deg,var(--ink),var(--ice) 60%,var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.12rem;margin-top:24px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.hero h1 span,.hero p,.hero .cta{animation:in .9s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 span:nth-child(2){animation-delay:.12s}.hero h1 span:nth-child(3){animation-delay:.24s}.hero p{animation-delay:.4s}.hero .cta{animation-delay:.55s}
+@keyframes in{from{opacity:0;transform:translateY(26px)}}
+.stage{perspective:1100px;height:min(520px,80vw);display:grid;place-items:center}
+.scene{position:relative;width:min(380px,74vw);aspect-ratio:1;transform-style:preserve-3d;transition:transform .25s ease-out}
+.ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(125,227,255,.55);box-shadow:0 0 30px rgba(125,227,255,.25),inset 0 0 30px rgba(139,123,255,.2);transform-style:preserve-3d;animation:spin 16s linear infinite}
+.ring:nth-child(1){transform:rotateX(70deg)}
+.ring:nth-child(2){inset:12%;border-color:rgba(139,123,255,.7);animation-duration:22s;animation-direction:reverse}
+.ring:nth-child(3){inset:-9%;border-color:rgba(255,148,102,.45);border-style:dashed;animation-duration:30s}
+@keyframes spin{from{transform:rotateX(70deg) rotateZ(0)}to{transform:rotateX(70deg) rotateZ(360deg)}}
+.ring:nth-child(2){animation-name:spin2}.ring:nth-child(3){animation-name:spin3}
+@keyframes spin2{from{transform:rotateY(70deg) rotateZ(0)}to{transform:rotateY(70deg) rotateZ(-360deg)}}
+@keyframes spin3{from{transform:rotateX(25deg) rotateY(25deg) rotateZ(0)}to{transform:rotateX(25deg) rotateY(25deg) rotateZ(360deg)}}
+.core{position:absolute;inset:30%;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff,var(--ice) 22%,var(--vio) 60%,#1a1450);box-shadow:0 0 70px 14px rgba(125,227,255,.45),0 0 160px 40px rgba(139,123,255,.35);animation:pulse 5s ease-in-out infinite;transform:translateZ(30px)}
+@keyframes pulse{50%{transform:translateZ(30px) scale(1.07);box-shadow:0 0 90px 22px rgba(125,227,255,.55),0 0 190px 50px rgba(139,123,255,.4)}}
+.chip{position:absolute;padding:8px 14px;border-radius:12px;font-size:.8rem;font-weight:600;animation:float 6s ease-in-out infinite}
+.chip b{color:var(--ice);font-weight:600}
+.c1{top:6%;left:-8%}.c2{bottom:12%;right:-6%;animation-delay:-2s}.c3{bottom:-2%;left:6%;animation-delay:-4s}
+@keyframes float{50%{transform:translateY(-12px)}}
+/* services */
+.head{margin-bottom:54px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{padding:30px 26px;transition:transform .35s,border-color .35s,box-shadow .35s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx,50%) var(--my,0%),rgba(125,227,255,.14),transparent 60%);opacity:0;transition:opacity .35s}
+.card:hover{transform:translateY(-6px);border-color:rgba(125,227,255,.45);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:22px;background:linear-gradient(140deg,rgba(125,227,255,.2),rgba(139,123,255,.2));border:1px solid var(--line)}
+.ico svg{width:22px;height:22px;stroke:var(--ice);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.25rem;margin-bottom:10px}
+.card p{font-size:.94rem}
+/* projects */
+.projects{display:grid;gap:22px}
+.proj{display:grid;grid-template-columns:1.15fr 1fr;gap:34px;padding:22px;align-items:center;transition:border-color .35s,transform .35s}
+.proj:nth-child(even){grid-template-columns:1fr 1.15fr}.proj:nth-child(even) .shot{order:2}
+.proj:hover{border-color:rgba(139,123,255,.5);transform:translateY(-4px)}
+.shot{aspect-ratio:16/10;border-radius:14px;overflow:hidden;position:relative;border:1px solid var(--line);transition:transform .5s}
+.proj:hover .shot{transform:scale(1.02)}
+.shot .bar{height:22px;background:rgba(0,0,0,.35);display:flex;gap:5px;padding:8px}
+.shot .bar i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}
+.s1{background:linear-gradient(135deg,#3a1d12,#14101f 60%,#5b2a16)}
+.s2{background:linear-gradient(135deg,#0d2a3a,#101226 60%,#1b3f6b)}
+.s3{background:linear-gradient(135deg,#1b1646,#0b1020 60%,#0f4a5a)}
+.mock{position:absolute;inset:34px 18px 18px;display:grid;gap:10px}
+.mock div{border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08)}
+.m1{grid-template-columns:2fr 1fr;grid-template-rows:2fr 1fr}.m1 div:first-child{grid-row:span 2;background:radial-gradient(circle at 50% 40%,rgba(255,148,102,.5),rgba(255,255,255,.05) 70%)}
+.m2{grid-template-columns:repeat(3,1fr);grid-template-rows:2fr 1fr}.m2 div:nth-child(-n+3){background:linear-gradient(160deg,rgba(125,227,255,.28),rgba(255,255,255,.04))}.m2 div:nth-child(4){grid-column:span 3}
+.m3{grid-template-rows:1fr 1fr 1fr}.m3 div:nth-child(1){width:70%;background:rgba(139,123,255,.3)}.m3 div:nth-child(2){width:55%;margin-left:auto;background:rgba(125,227,255,.22)}.m3 div:nth-child(3){width:80%;background:rgba(139,123,255,.3)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.tags span{font-size:.8rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+.proj h3{font-size:1.9rem;margin-bottom:6px}
+.note{font-size:.85rem;margin-top:30px;color:var(--mute)}
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.why .card{padding:34px 28px}
+.why h3{font-size:1.2rem;margin-bottom:10px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.step{padding:0 22px 0 0;position:relative}
+.step::before{content:"";position:absolute;top:19px;left:46px;right:0;height:1px;background:linear-gradient(90deg,var(--ice),transparent)}
+.step:last-child::before{display:none}
+.dot{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 .95rem var(--fd);background:var(--bg2);border:1px solid var(--ice);box-shadow:0 0 20px rgba(125,227,255,.3);margin-bottom:22px;position:relative}
+.step h3{font-size:1.2rem;margin-bottom:8px}.step p{font-size:.93rem}
+/* pricing */
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{padding:36px 30px;display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
+.plan:hover{transform:translateY(-6px)}
+.plan.hot{border-color:rgba(125,227,255,.55);box-shadow:0 0 60px rgba(139,123,255,.2);background:linear-gradient(180deg,rgba(60,60,130,.35),var(--glass))}
+.plan h3{font-size:1.3rem}
+.amt{font:800 2.6rem var(--fd);margin:14px 0 4px}
+.amt small{font:500 .9rem var(--fb);color:var(--mute)}
+.plan ul{list-style:none;padding:0;margin:22px 0 30px;display:grid;gap:11px;flex:1}
+.plan li{padding-left:26px;position:relative;font-size:.94rem;color:var(--mute)}
+.plan li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:6px;border-left:2px solid var(--ice);border-bottom:2px solid var(--ice);transform:rotate(-45deg)}
+/* testimonials */
+.badge{display:inline-block;padding:6px 14px;border-radius:999px;font-size:.82rem;border:1px solid rgba(255,148,102,.5);color:var(--ember);margin-bottom:26px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.quote{padding:30px 26px;display:flex;flex-direction:column;gap:22px}
+.quote p{color:var(--ink);font-size:1rem}
+.who{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--mute)}
+.who i{width:38px;height:38px;border-radius:50%;background:conic-gradient(var(--vio),var(--ice),var(--vio))}
+.who b{display:block;color:var(--ink);font-weight:600}
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.about p+p{margin-top:16px}
+.facts{padding:34px;display:grid;gap:22px}
+.facts div{padding-bottom:20px;border-bottom:1px solid var(--line)}.facts div:last-child{border:0;padding:0}
+.facts b{display:block;font:700 1.15rem var(--fd);margin-bottom:4px}
+.facts span{font-size:.92rem;color:var(--mute)}
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px}
+.info{margin-top:30px;display:grid;gap:10px;color:var(--mute);font-size:.95rem}
+form{padding:34px;display:grid;gap:18px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:grid;gap:8px;font-size:.88rem;color:var(--mute)}
+input,select,textarea{font:inherit;color:var(--ink);background:rgba(8,10,24,.6);border:1px solid var(--line);border-radius:12px;padding:13px 15px;transition:border-color .25s,box-shadow .25s;width:100%}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ice);box-shadow:0 0 0 3px rgba(125,227,255,.15)}
+textarea{min-height:120px;resize:vertical}
+#ok{display:none;padding:14px 16px;border-radius:12px;background:rgba(125,227,255,.1);border:1px solid rgba(125,227,255,.4);color:var(--ink);font-size:.92rem}
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 40px;background:rgba(7,9,20,.7)}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.foot nav{display:grid;gap:10px;color:var(--mute);font-size:.93rem;align-content:start}
+.foot nav a:hover{color:var(--ice)}
+.fine{margin-top:40px;font-size:.82rem;color:var(--mute)}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}
+.rv.on{opacity:1;transform:none}
+/* responsive */
+@media(max-width:1020px){.grid4{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr);row-gap:40px}.step:nth-child(2)::before{display:none}.price,.tgrid,.why{grid-template-columns:1fr 1fr}.price .plan:last-child,.tgrid .quote:last-child,.why .card:last-child{grid-column:span 2}}
+@media(max-width:860px){
+.hero .wrap,.about,.contact,.proj,.proj:nth-child(even){grid-template-columns:1fr}.proj:nth-child(even) .shot{order:0}
+.hero{padding-top:120px}.stage{height:380px;order:-1}.chip{display:none}
+.burger{display:block}
+.links{position:absolute;top:calc(100% + 6px);left:0;right:0;flex-direction:column;gap:4px;padding:16px;border-radius:20px;background:rgba(12,16,32,.95);border:1px solid var(--line);display:none}
+.links.open{display:flex}.links a{padding:12px}
+.nav>.btn{display:none}
+.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:span 2}}
+@media(max-width:620px){.grid4,.price,.tgrid,.why,.steps,.f2{grid-template-columns:1fr}.price .plan:last-child,.tgrid .quote:last-child,.why .card:last-child{grid-column:auto}.step::before{display:none}.cta .btn{flex:1 1 100%}form{padding:24px 20px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<header>
+<div class="wrap"><div class="nav glass">
+<a class="logo" href="#top" aria-label="NEXORA AI home"><i></i>NEXORA AI</a>
+<nav class="links" id="links" aria-label="Main">
+<a href="#services">Services</a><a href="#work">Work</a><a href="#why">Why us</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#contact">Contact</a>
+</nav>
+<a class="btn pri sm" href="#contact">Start a Project</a>
+<button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+</div></div>
+</header>
+
+<main id="top">
+<section class="hero">
+<div class="wrap">
+<div>
+<h1><span>Build Smarter.</span><span>Automate Faster.</span><span>Grow Further.</span></h1>
+<p>NEXORA AI builds modern websites, AI-powered solutions and business automation experiences for growing businesses.</p>
+<div class="cta"><a class="btn pri" href="#contact">Start a Project</a><a class="btn" href="#work">View Our Work</a></div>
+</div>
+<div class="stage" aria-hidden="true">
+<div class="scene" id="scene">
+<div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="core"></div>
+<div class="chip glass c1"><b>Chatbot</b> replied in 2s</div>
+<div class="chip glass c2"><b>Workflow</b> synced</div>
+<div class="chip glass c3"><b>Site</b> deployed</div>
+</div></div>
+</div>
+</section>
+
+<section id="services"><div class="wrap">
+<div class="head rv"><h2>Four ways we help your business move faster</h2><p class="sub">Each service works alone or as part of one connected system.</p></div>
+<div class="grid4">
+<article class="card glass rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div><h3>Web Development</h3><p>Fast, accessible websites and web apps, designed around how your customers actually buy.</p></article>
+<article class="card glass rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h3>AI Automation</h3><p>Hand repetitive tasks like data entry, reporting and follow-ups to reliable AI workflows.</p></article>
+<article class="card glass rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg></div><h3>AI Chatbots</h3><p>Assistants trained on your content that answer questions and book leads around the clock.</p></article>
+<article class="card glass rv"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="6" rx="1"/><rect x="14" y="14" width="7" height="6" rx="1"/><path d="M10 7h4a3 3 0 013 3v4M14 17h-4a3 3 0 01-3-3v-4"/></svg></div><h3>Business Automation</h3><p>Connect your CRM, billing, email and support tools so work moves without manual handoffs.</p></article>
+</div></div></section>
+
+<section id="work"><div class="wrap">
+<div class="head rv"><h2>Featured projects</h2><p class="sub">Three fictional concept projects that show how we approach different industries.</p></div>
+<div class="projects">
+<article class="proj glass rv"><div class="shot s1"><div class="bar"><i></i><i></i><i></i></div><div class="mock m1"><div></div><div></div><div></div></div></div>
+<div><h3>Nova Restaurant</h3><p>A reservation-first website for a neighborhood restaurant, with a live menu, table booking and an assistant that answers dietary questions.</p><div class="tags"><span>Web Development</span><span>AI Chatbot</span><span>Bookings</span></div></div></article>
+<article class="proj glass rv"><div class="shot s2"><div class="bar"><i></i><i></i><i></i></div><div class="mock m2"><div></div><div></div><div></div><div></div></div></div>
+<div><h3>Vertex Commerce</h3><p>An online store with automated inventory sync, abandoned-cart follow-ups and order updates sent without anyone lifting a finger.</p><div class="tags"><span>E-commerce</span><span>Business Automation</span><span>Analytics</span></div></div></article>
+<article class="proj glass rv"><div class="shot s3"><div class="bar"><i></i><i></i><i></i></div><div class="mock m3"><div></div><div></div><div></div></div></div>
+<div><h3>Finora AI</h3><p>A finance support assistant that explains invoices, flags unusual charges and routes complex questions to the right person.</p><div class="tags"><span>AI Automation</span><span>AI Chatbot</span><span>Dashboard</span></div></div></article>
+</div>
+<p class="note rv">These are fictional concept projects created for this demo site. They do not represent real clients.</p>
+</div></section>
+
+<section id="why"><div class="wrap">
+<div class="head rv"><h2>Why teams choose NEXORA AI</h2></div>
+<div class="why">
+<article class="card glass rv"><h3>One team, whole system</h3><p>Design, development and automation under one roof, so nothing gets lost between vendors.</p></article>
+<article class="card glass rv"><h3>Plain-language answers</h3><p>We explain what we build and why, and tell you when a simpler option will do the job.</p></article>
+<article class="card glass rv"><h3>Built to be owned</h3><p>You get clean code, clear documentation and training, with no lock-in to us.</p></article>
+<article class="card glass rv"><h3>Performance first</h3><p>Pages are tuned for speed, search and accessibility before they ever go live.</p></article>
+<article class="card glass rv"><h3>Human in the loop</h3><p>Automations include review points, so people stay in control of important decisions.</p></article>
+<article class="card glass rv"><h3>Privacy by default</h3><p>We collect only the data a project needs and agree how it is stored before we start.</p></article>
+</div></div></section>
+
+<section id="process"><div class="wrap">
+<div class="head rv"><h2>Our process, start to launch</h2></div>
+<div class="steps">
+<div class="step rv"><div class="dot">1</div><h3>Discover</h3><p>We learn your goals, customers and the tasks that slow your team down.</p></div>
+<div class="step rv"><div class="dot">2</div><h3>Design</h3><p>You review clickable concepts and a clear plan before any code is written.</p></div>
+<div class="step rv"><div class="dot">3</div><h3>Build</h3><p>We develop in short cycles, with working previews you can test each week.</p></div>
+<div class="step rv"><div class="dot">4</div><h3>Launch and improve</h3><p>We ship, train your team, then measure results and keep refining.</p></div>
+</div></div></section>
+
+<section id="pricing"><div class="wrap">
+<div class="head rv"><h2>Pricing that scales with you</h2><p class="sub">Sample starting prices for this demo. Every real project is scoped and quoted individually.</p></div>
+<div class="price">
+<article class="plan glass rv"><h3>Launch</h3><div class="amt">$2,500<small> starting</small></div><p>For a focused, polished web presence.</p><ul><li>Up to 5 custom pages</li><li>Responsive, fast design</li><li>Basic search setup</li><li>30 days of support</li></ul><a class="btn" href="#contact">Start a Project</a></article>
+<article class="plan glass hot rv"><h3>Growth</h3><div class="amt">$6,500<small> starting</small></div><p>For businesses ready to automate.</p><ul><li>Everything in Launch</li><li>AI chatbot on your content</li><li>2 connected workflows</li><li>Analytics dashboard</li><li>90 days of support</li></ul><a class="btn pri" href="#contact">Start a Project</a></article>
+<article class="plan glass rv"><h3>Scale</h3><div class="amt">Custom</div><p>For complex, multi-team systems.</p><ul><li>Custom AI solutions</li><li>Full business automation</li><li>Integrations with your tools</li><li>Dedicated project lead</li></ul><a class="btn" href="#contact">Talk to Us</a></article>
+</div></div></section>
+
+<section id="testimonials"><div class="wrap">
+<div class="head rv"><span class="badge">Demo testimonials. Written as samples, not from real clients.</span><h2>What working with us could feel like</h2></div>
+<div class="tgrid">
+<article class="quote glass rv"><p>They turned a messy brief into a clear plan, and the preview links kept us confident every week.</p><div class="who"><i></i><span><b>Sample Customer A</b>Demo role, restaurant</span></div></article>
+<article class="quote glass rv"><p>The order updates now run on their own, and our team spends its time on customers instead of spreadsheets.</p><div class="who"><i></i><span><b>Sample Customer B</b>Demo role, online store</span></div></article>
+<article class="quote glass rv"><p>The assistant handles routine questions well and hands off to us when it should. That balance mattered most.</p><div class="who"><i></i><span><b>Sample Customer C</b>Demo role, finance team</span></div></article>
+</div></div></section>
+
+<section id="about"><div class="wrap about">
+<div class="rv"><h2>A small studio with a practical view of AI</h2>
+<p class="sub">NEXORA AI is a fictional agency created for this demo. In this concept, the studio pairs web designers, engineers and automation specialists who prefer useful tools over hype.</p>
+<p>Our approach is simple: understand the business, remove the slowest manual work, and build something your team is glad to use.</p></div>
+<div class="facts glass rv">
+<div><b>Clarity</b><span>Honest scopes, timelines and trade-offs.</span></div>
+<div><b>Craft</b><span>Careful design and clean, documented code.</span></div>
+<div><b>Care</b><span>Responsible AI with people kept in control.</span></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap contact">
+<div class="rv"><h2>Tell us what you want to build</h2><p class="sub">Share a few details and we will reply with next steps. This demo form does not send data anywhere.</p>
+<div class="info"><span>hello@nexora-ai.example</span><span>Replies within two business days (demo)</span></div></div>
+<form class="glass rv" id="form" novalidate>
+<div class="f2"><label>Name<input name="n" required autocomplete="name"></label><label>Email<input type="email" name="e" required autocomplete="email"></label></div>
+<label>What do you need?<select name="s"><option>A new website</option><option>An AI chatbot</option><option>Automation for my workflow</option><option>Not sure yet</option></select></label>
+<label>Project details<textarea name="m" required></textarea></label>
+<button class="btn pri" type="submit">Send project details</button>
+<div id="ok" role="status"></div>
+</form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="foot">
+<div><a class="logo" href="#top"><i></i>NEXORA AI</a><p class="sub" style="font-size:.93rem">Websites, AI and automation for growing businesses.</p></div>
+<nav aria-label="Footer"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#pricing">Pricing</a></nav>
+<nav aria-label="Company"><a href="#why">Why us</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#top">Back to top</a></nav>
+</div>
+<p class="fine">&copy; 2026 NEXORA AI. A fictional agency created for demonstration. All projects, prices and testimonials are samples.</p>
+</div></footer>
+
+<script>
+(function(){
+var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return[].slice.call((c||document).querySelectorAll(s))};
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* menu */
+var b=$('#burger'),l=$('#links');
+b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+$$('a',l).forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open');b.setAttribute('aria-expanded',false)})});
+/* reveal */
+var els=$$('.rv');
+if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e,i){e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)})}else els.forEach(function(e){e.classList.add('on')});
+/* hero tilt */
+var sc=$('#scene');
+if(sc&&!reduce){window.addEventListener('pointermove',function(e){var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;sc.style.transform='rotateY('+x*26+'deg) rotateX('+(-y*22)+'deg)'})}
+/* card glow */
+$$('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+/* particles */
+var cv=$('#fx'),cx=cv.getContext('2d'),P=[],W,H,D=Math.min(devicePixelRatio||1,2);
+function size(){W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;cx.setTransform(D,0,0,D,0,0);var n=Math.round(Math.min(70,W*H/20000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.4+.4,h:Math.random()<.7?'125,227,255':'139,123,255'})}
+function draw(){cx.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;cx.fillStyle='rgba('+p.h+',.65)';cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fill();for(var j=i+1;j<P.length;j++){var q=P[j],dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;if(d<12000){cx.strokeStyle='rgba(125,227,255,'+(.12*(1-d/12000))+')';cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}}
+if(!reduce)requestAnimationFrame(draw)}
+size();draw();var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(function(){size();if(reduce)draw()},150)});
+/* form (demo only) */
+$('#form').addEventListener('submit',function(e){e.preventDefault();var f=e.target,ok=$('#ok'),n=f.n.value.trim(),m=f.e.value.trim();ok.style.display='block';
+if(!n||!/^\S+@\S+\.\S+$/.test(m)||!f.m.value.trim()){ok.textContent='Please add your name, a valid email and a few project details.';return}
+ok.textContent='Thanks, '+n+'. This is a demo form, so nothing was sent. A live site would deliver your message to the team.';f.reset()});
+})();
+</script>
+</body>
+</html>
